@@ -1,4 +1,6 @@
 -Abstract (Nathan)
+
+
 -Starting from mentioning the pros and cons of phone reservation system. 
 
 -Describe the adventage of our system and how can it change the current setting. (Chen)
@@ -9,4 +11,6 @@
   For instance, with the adaptation of a digital reservation system that provides a representation of an online calendar, the process of making settlement for a meeting time only requires the client to establish a conformation with the open time provided by the host, and with the acceptance of such request by the host, the settlement can be made in no time. However, with the traditional phone reservation system, such a procedure will require a minimum three-step: first, the client must establish a form of connection with the host, and this procedure has a chance of failure if the connection cannot be established. Second, once the connection between the two ends is established, the client must request the availability of the host and choose an appropriate time that suits both sides. Third, the host must conform to such a request in order to establish an agreement on the meeting time. Compare to the digital version of such procedure, additional time will be wasted on all three of the procedure, such as the time it takes to take the original connection, the time for the host to provide its availability, and the time for both side to come to a final agreement. When the digital service is adopted, the host can make its available time open to the public by posting it on an application, therefore the client has full control over the desired time, however, the time frame of the meeting is controlled by the host. Originally, such an application does not allow the host to reject or accept such requests, however, such a function is implemented within our system, which will be discussed shortly after. With the implementation of such a procedure, the time required to established a meeting time can be shorted magnificently compared to the traditional procedure, which provides a much convenient implementation that utilized modern technology to such concept.
   
   
+
+
 -features of our current system and how is it different than the one's on the market(Nick)
