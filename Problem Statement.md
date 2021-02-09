@@ -1,5 +1,6 @@
 -Abstract (Nathan)
 
+We are looking to create a service portal type application. It serves its purpose in that many companies have not adopted a service portal, and they still keep records of appointments for them or specific employees on pen and paper on a calendar. This would allow a centralized way of partners and companies communicating. It would have two perspectives, the company and the partner's (or external company). The company view would allow employees to look names of others up, or themselves, to see what appointments have been planned with them and by who. It would provide addtional information pertaining to the appointment; the employee can accept or deny requests. The partner portal would allow partners to set up appointments with specific employees. They can do this by entering a date, which will be submitted with the required information for further review. It will also tell them if the time slot is already appointed for said employee.
 
 -Starting from mentioning the pros and cons of phone reservation system. 
 
