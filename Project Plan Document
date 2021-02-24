@@ -1,1 +1,19 @@
-hello world
+
+M1 - Overall Design (1 Week)
+  T1 - Database Design  (Nathan)
+  T2 - Environment Setup/Design (Chen)
+  T3 - BackEnd Framework Design (Adi)
+  T4 - FrontEnd Framework Design (Nick)
+
+M2 - Prototype  (2.5/3 Week)
+  T5 - Navagatinal Simple Functionaility  (Nick, Chen)
+  T6 - Basic Database Function  (Adi)
+  T7 - General Layout and Skeleton of UI and Webpage (Nathan)
+
+M3 - More Percise Implementation (3 Week)
+  T8 - Full database Functionaility (Adi)
+  T9 - Full development of UI and Webpage (Nick,Chen)
+  T10 - Simple Function Testing (Nathan)
+
+M4 - Test Case Set up, Overall Review (1 Week)
+  T11 - General Testing/Bug Fixes (All 4 Member)
