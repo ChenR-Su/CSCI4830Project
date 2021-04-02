@@ -84,6 +84,7 @@ body{
     margin-top:150px;
     border:3px solid lightgray;
     position: absolute;
+
 }
 
 .mainContent h1{
@@ -95,12 +96,59 @@ body{
     color: black;
 }
 .mainContent h2{
+    color: white;
     margin-left: 50px;
     font-size: 17px;
 }
 
 .mainContent form{
+    color: white;
     margin-left: 50px;
-    margin-top: 20px;
-   
+    margin-top: 20px; 
 }
+.mainContent button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 350px;
+    margin-left: 700px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color:#fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+.searchForm button{
+    width: 200px;
+    padding: 15px 0;
+    text-align: center;
+    margin-left: 1120px;
+    margin-top: 15px;
+    border-radius: 25px;
+    font-weight: bold;
+    border: 2px solid #009688;
+    background: transparent;
+    color:#fff;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+span{
+    background: #009688;
+    height: 100%;
+    width: 0%;
+    border-radius: 25px;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    transition: 0.5s;
+}
+button:hover span{
+    width: 100%;
+}
+
