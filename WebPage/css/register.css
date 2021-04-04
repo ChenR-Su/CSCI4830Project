@@ -46,7 +46,7 @@
 .content{
     width: 50%;
     position: absolute;
-    top: 30%;
+    top: 15%;
     transform: translateX(+50%);
     color: #fff;
     border: 1px solid #ccc;
