@@ -1,53 +1,78 @@
 var express = require('express');
 var app = express();
 var mysql = require('mysql');
-var bodyParser = require('body-parser');
+
+//PORT
 const port = 3000;
 
-var connection = mysql.createConnection({
-    host : 'ec2-18-222-239-220.us-east-2.compute.amazonaws.com',
-    user : 'newmysqlremoteuser',
-    password : 'password',
-    database : 'semesterProject'
-})
+//getting routers
+var clientRouter = require('./routes/client');
 
-var jsonParser = bodyParser.json();
+//bodyParsing module
+app.use(express.json());
 
 
+//hello world
 app.get('/', (req, res) => {
     res.send('hello world')
 })
 
-app.get('/test', (req, res) => {
-    connection.connect();
-    connection.query('select * from client', function(err, results, fields)  {
+app.use('/client', clientRouter);
+
+
+
+//GET clients
+app.get('/clients', (req, res) => {
+
+    //getting connection from pool and getting data
+    pool.getConnection((err, connection) => {
         if(err){
-            console.log(err);
+            //throw err;
         }
-        res.status(200).send(results);
+        connection.query( 'select * from client' , (err, results) => {
+            if(err){
+                //throw err;
+            }
+            res.status(200).send(results);
+        });
+
+        connection.release();
+
     });
-    connection.end();
-})
 
-app.post('/test', (req, res) => {
-    let post = [
-        ['example', 'customer2', 'customer2', 'password']
-    ]
+});
 
 
-    var statement = 'insert into client (firstname, lastname, username, password) values ?';
-    connection.connect();
+app.post('/clients', (req, res) => {
 
-    connection.query(statement, [post], function(err, result) {
+    //getting req body
+    let post = {
+        firstname : req.body.firstname,
+        lastname : req.body.lastname,
+        username : req.body.username,
+        password : req.body.password
+    }
+
+    //building query string
+    let query = `insert into client (firstname, lastname, username, password) 
+    values ('${post.firstname}', '${post.lastname}',
+     '${post.username}', '${post.password}');`;
+
+    //getting connection from pool and posting data
+    pool.getConnection( (err, connection) => {
         if(err){
-            console.log(err);
+            //throw err;
         }
+        connection.query(query, (err, result) => {
+            if(err){
+                //throw err;
+            }
+            res.status(200).send(result);
+        })
 
-        console.log('inserted values into the table');
-        res.status(200).send(result);
-    })
+        connection.release();
+    });
 
-    connection.end();
 })
 
 
