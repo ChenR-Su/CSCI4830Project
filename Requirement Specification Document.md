@@ -10,6 +10,6 @@ Section 2.0 Page development and prevous sections(Chen)
 
 2.5: Store and view the accupation of the individual within the company (Nathan)
 
-Section 3 (Adi)
+Section 3.0 (Adi)
 
 
