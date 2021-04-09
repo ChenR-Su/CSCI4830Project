@@ -8,7 +8,7 @@ Section 2.0 Page development and prevous sections(Chen)
 
 2.4: View the list of individuals within the company for open appointment (Nathan)
 
-2.5: Store and view the accupation of the individual within the company (Nathan)
+2.5: view the occupation and detailed information of the individual within the company (Nathan)
 
 Section 3.0 (Adi)
 
