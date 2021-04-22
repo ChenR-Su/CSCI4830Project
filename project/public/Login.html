@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <title> NCN Login Page</title>
+        <link rel ="stylesheet" href="./css/login.css">
+    </header>
+    <body>
+        <div class = "banner">
+            <div class = "nav">
+                <ul>
+                    <li> <a href = "/"> Home </a></li>
+                    <li> <a href = "#"> Login </a></li>
+                    <li> <a href = "register"> Register </a></li>
+                    <li> <a href = "aboutus"> About Us </a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h1>NCN Login</h1>
+                <h3>Employees:</h3>
+                <form action="/employee/login" method="POST">
+                    <label for="fname">username:</label><br>
+                    <input type="text" id="username" name="username"><br>
+                    <label for="lname">password:</label><br>
+                    <input type="text" id="password" name="password"><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+                <br/>
+                <br/>
+                <h3>Clients:</h3>
+                <form action="/client/login" method="POST">
+                    <label for="fname">username:</label><br>
+                    <input type="text" id="username" name="username"><br>
+                    <label for="lname">password:</label><br>
+                    <input type="text" id="password" name="password"><br><br>
+                    <input type="submit" value="Submit">
+                </form> 
+            </div>
+        </div>
+    </body>
+</html>
