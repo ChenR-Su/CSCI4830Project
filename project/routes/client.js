@@ -85,8 +85,8 @@ router.post('/login', (req, res) => {
                 res.sendFile('Login.html', {root: path.join(__dirname, '/../public')});
             } else {
                 req.session.loggedIn = true;
-                console.log(req.sesssion);
-                res.status(200).send('logged in successfully, next steps is to make the two dashboards and redirect the user')
+                console.log(result);
+                res.status(200).send(req.session);
             }
         })
     })
