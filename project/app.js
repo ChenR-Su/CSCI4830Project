@@ -15,6 +15,8 @@ var webpageRouter = require('./routes/webpage')
 //bodyParsing module settings
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(express.static('public'));
+
 
 //setting up the sessions
 app.use(session({
