@@ -10,10 +10,10 @@
 
 6: Employee Logout
 
-7: Client Search for specific employee
+7: client get all employees in dash
 
 8: Client Establish Appointment
 
-9: Client view their appointments after establishing
+9: Client sees appts from dash
 
-10: Employee checks their apoointment
+10: employee sees the appts from dash
