@@ -7,10 +7,10 @@
           margin: 0;
           padding: 0;
           font-family: sans-serif;
-          
+
       }
       .sideMenu{
-          background-color:rgba(0, 0, 0, 0.75); 
+          background-color:rgba(0, 0, 0, 0.75);
           width: 250px;
           position: absolute;
           top: 0;
@@ -63,7 +63,7 @@
           padding: 5px;
           font-weight: 100;
           width: 80%;
-        
+
       }
       .search input:hover{
           background-color:lightgray;
@@ -96,7 +96,7 @@
           text-align: center;
           font-family:sans-serif;
           padding: 20px 300px;
-          
+
           text-decoration: none;
           color: black;
       }
@@ -109,7 +109,7 @@
       .mainContent form{
           color: white;
           margin-left: 50px;
-          margin-top: 20px; 
+          margin-top: 20px;
       }
       .mainContent button{
           width: 200px;
@@ -164,13 +164,13 @@
     <ul>
       <li> <a href = "AccountDashBoard.html"> Account Info</a></li>
       <li> <a href = "ViewAppointment.html"> My Appointments </a></li>
-      <li> <a href = "Login.html"> Log Out </a></li> <!-- Link to Login Page -->
+      <li> <a href = "Login.html" action = "webpage/logout" method = POST> Log Out </a></li> <!-- Link to Login Page -->
     </ul>
   </div>
   <body>
     <header>
-    <form class = "searchForm"> 
-    <div class = "search"> 
+    <form class = "searchForm">
+    <div class = "search">
       <input  type ="text" name="companySearch" onfocus="this.value=''" value = "Search For Individual Within This Company">
     </div>
     <div>
@@ -193,9 +193,9 @@
         <button type = "submit"><span></span>Confirm Appointment Time</button><br>
       </div>
       </form>
-     
+
     </section>
-   
+
   </body>
 
 
