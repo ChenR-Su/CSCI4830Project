@@ -35,6 +35,21 @@ router.get('/:apptid', (req, res) => {
     })
 })
 
+//get appt by employeeid
+router.get('/fromemployee', (req, res) => {
+    console.log('got here');
+    let id = req.session.employeeid;
+
+    connectDB((connection) => {
+        connection.query('select * from appointment where `employeeid` = ?', [id], (err, result) => {
+            if(err){
+                console.log(err);
+            }
+            res.status(200).send(result);
+        })
+    })
+})
+
 //get appointment by clientid
 router.get('/fromClient', (req, res) => {
 

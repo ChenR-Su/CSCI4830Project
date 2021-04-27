@@ -9,6 +9,21 @@
             });
         });
     </script>
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "/appointment/fromemployee",
+                type : "GET",
+                success : function(data){
+                    var jsonData = Object.values(JSON.parse(JSON.stringify(data)));
+                    console.log('apptstoapprove: ' + jsonData);
+                    $.each(jsonData, function(index, value) {
+                        $("#apptstoapprove").append('<li>'+value.freedayid+' with '+value.clientid+'</li>');
+                    })
+                }
+            })
+        })
+    </script>
     <title>Employee Dashboard</title>
     <style>
         *{
@@ -141,7 +156,7 @@
 </head>
 <div class = "sideMenu">
     <ul>
-    <li> <a href = "Login.html" action = "webpage/logout" method = POST> Log Out </a></li> <!-- Link to Login Page -->
+    <li> <a href="/logout"> Log Out </a></li> <!-- Link to Login Page -->
     </ul>
 </div>
 <body>
@@ -156,6 +171,11 @@
             <input class = "inputDate" type="text" id="date" name="date"><br>
             <input class = "submitInput" type="submit" value="Submit">
         </form>
+
+        <h3>appointments for approval:</h3>
+        <ul id="apptstoapprove">
+
+        </ul>
     </section>
 </body>
 </html>
