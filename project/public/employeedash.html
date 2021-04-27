@@ -113,7 +113,7 @@
             padding: 15px 0;
             text-align: center;
             margin-left: 300px;
-            margin-top: 200px;
+            margin-top: 120px;
             border-radius: 25px;
             font-weight: bold;
             border: 2px solid #009688;
@@ -125,13 +125,13 @@
         }
         .mainContent label{
             margin-left:330px;
-            margin-top:120px;
+            margin-top:50px;
             position:absolute;
         }
         .inputDate{
             width:20%;
             margin-left:300px;
-            margin-top:150px;
+            margin-top:70px;
             position:absolute;
             border:1px;
             font-size: 1.3rem;
@@ -140,17 +140,46 @@
             font-weight: 100;
             
         }
-    
+        .mainContent ul li{
+            list-style: none;
+            display: inline-block;
+            margin: 10px 20px;
+            position: relative;
+            color:white;
+            text-decoration: none;
+            padding: 20px 30px;
+        }
 
+        button{
+                width: 80px;
+                padding: 15px 0;
+                text-align: center;
+                margin: 20px 10px;
+                border-radius: 25px;
+                font-weight: bold;
+                border: 2px solid #009688;
+                background: transparent;
+                color:#fff;
+                cursor: pointer;
+                position: relative;
+                overflow: hidden;
+        }
+        .sideMenu h3{
+            display: block;
+            color:white;
+            text-decoration: none;
+            padding: 20px 30px;
+        }
+
+        body h1{
+             position:absolute;
+            margin-left: 800px;
+            margin-top: 100px;
+        }
     </style>
 <body>
     <a href='/logout'>logout</a>
 
-    <h3>Your Free days:</h3>
-    <div id="freedaydiv">
-        <div id="subfreeday"></div>
-        <button id="refreshfreeday">refresh</div>button>
-    </div>
 
 
 </head>
@@ -158,14 +187,19 @@
     <ul>
     <li> <a href="/logout"> Log Out </a></li> <!-- Link to Login Page -->
     </ul>
+     <h3>Your Free days:</h3>
+    <div id="freedaydiv">
+        <div id="subfreeday"></div>
+        <button id="refreshfreeday">refresh</div>button>
+    </div>
 </div>
 <body>
     
     <!--<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>-
     <button>GO</button> -->
-    
+    <h1>Set a free day</h1>
     <section class = "mainContent">
-        <h1>Set a free day</h1>
+        
         <form action="/freeday/create" method="POST">
             <label for="date">Input Date:</label><br>
             <input class = "inputDate" type="text" id="date" name="date"><br>
