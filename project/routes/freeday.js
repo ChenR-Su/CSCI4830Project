@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var path = require('path');
 var { connectDB } = require('../config/dbconfig');
 
 //get all calenders
@@ -53,22 +54,22 @@ router.get('/getfromemployee/:employeeid', (req, res) => {
 //post calender
 router.post('/create', (req, res) => {
 
-    console.log(req.session);
+    console.log("session id: " + req.session.id);
 
     let post = {
         date : req.body.date
     }
 
-    console.log(`employeeid: ${post.employeeid}`);
+    console.log(`employeeid: ${req.session.employeeID}`);
 
-    let query = `insert into freeDay (freedate, employeeid) values ('${post.date}', '${req.session.employeeid}')`;
+    let query = `insert into freeDay (freedate, employeeid) values ('${post.date}', '${req.session.employeeID}')`;
     connectDB((connection) => {
         connection.query(query, (err, result) =>{
             if(err){
                 console.log(err);
             }
             
-            res.send(result);
+            res.status(200).sendFile('employeedash.html', {root: path.join(__dirname, '/../public')})
         })
     })
 })

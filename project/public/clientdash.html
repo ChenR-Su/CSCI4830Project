@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jquery -->
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : "/employee",
+                type : "GET",
+                success : function(data)
+                {
+                    
+                    var jsonData = Object.values(JSON.parse(JSON.stringify(data)));
+                    //console.log("jsonData: " + jsonData);
+                    $.each( jsonData , function(index, value){
+                        //console.log('firstname: ' + value.firstname);
+                        //console.log('lastname: ' + value.lastname);
+                        $("#employeelist").append('<li>'+value.firstname+' '+value.lastname+' '+'<button id="employeebutton">'+value.id+'</button></li>');
+                    })
+                }
+            })
+        });
+    </script>
+
+    <script>
+        $(document).on('click','#employeebutton',function(){
+            $.ajax({
+                url : `/freeday/getfromemployee/${this.innerHTML}`,
+                type : "GET",
+                success : function(data){
+                    $("#freedaylist").empty();
+                    var jsonData = Object.values(JSON.parse(JSON.stringify(data)));
+                    $.each(jsonData, function(index, value){
+                        $("#freedaylist").append('<li>'+value.freedate+'<button id="freedaybutton">'+value.id+'</button></li>')
+                    })
+                }
+            })
+        });
+    </script>
+
+    <script>
+        $(document).on('click', '#freedaybutton', function(){
+            console.log('got here')
+            $.post({
+                url : '/appointment/create',
+                data : {
+                    freedayid : this.innerHTML
+                }
+            })
+            alert('appointment application sent!')
+        })
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $.ajax({
+                url : '/appointment/fromClient',
+                type : "GET",
+                success : function(data){
+                    var jsonData = Object.values(JSON.parse(JSON.stringify(data)));
+                    console.log('pendingappt: ' + jsonData);
+                    $.each(jsonData, function(index, value) {
+                        $("#pendingappointments").append('<li>'+value.freedayid+' with '+value.employeeid+'</li>')
+                    })
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <h3>welcome to the client dash</h3>
+    <a href='/logout'>logout</a>
+
+    <h3>employees:</h3>
+    <ul id="employeelist">
+
+    </ul>
+
+    <h3>free days available from the employee selected above:</h3>
+    <p>press the button next to a free day to queue an appointment for approval</p>
+    <ul id="freedaylist">
+
+    </ul>
+
+    <h3>pending appointments:</h3>
+    <ul id="pendingappointments">
+
+    </ul>
+    
+</body>
+
+</html>

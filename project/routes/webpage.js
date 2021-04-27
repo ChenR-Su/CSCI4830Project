@@ -22,7 +22,7 @@ router.get('/login', (req, res) => {
 
 router.get('/logout', (req, res) => {
     req.session.destroy();
-    res.status(200).send('logout successful');
+    res.status(200).sendFile("MainPage.html", {root: path.join(__dirname, '/../public')})
 })
 
 module.exports = router;

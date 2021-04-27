@@ -80,13 +80,16 @@ router.post('/login', (req, res) => {
             if(err){
                 console.log(err);
             }
-            if(!result){
+            if(result != []){
+                var jsonObj = Object.values(JSON.parse(JSON.stringify(result)));
+                var clientid = jsonObj[0].id;
+                req.session.clientID = clientid;
+                console.log("session id: " + req.session.id);
+                res.status(200).sendFile("clientdash.html", {root: path.join(__dirname, '/../public')});
+            } else {
+
                 console.log('user not found');
                 res.sendFile('Login.html', {root: path.join(__dirname, '/../public')});
-            } else {
-                req.session.loggedInAsClient = true;
-                console.log(result);
-                res.status(200).send(req.session);
             }
         })
     })

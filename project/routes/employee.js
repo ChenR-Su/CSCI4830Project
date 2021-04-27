@@ -93,8 +93,9 @@ router.post('/login', (req, res) => {
                 var jsonResult = Object.values(JSON.parse(JSON.stringify(result)));
                 var employeeid = jsonResult[0].id;
                 req.session.employeeID = employeeid;
-                console.log(req.session);
-                res.status(200).sendFile('employeedash.html', {root: path.join(__dirname, '/../public' )})
+                console.log("session id: " + req.session.id);
+                //res.status(200).sendFile('employeedash.html', {root: path.join(__dirname, '/../public' )})
+                res.status(200).cookie('employeeid' , employeeid).sendFile('employeedash.html', {root: path.join(__dirname, '/../public')});
 
             } else {
                 console.log('user not found');

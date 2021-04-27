@@ -1,5 +1,6 @@
 var express = require('express');
 var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var path = require('path');
 var app = express();
 
@@ -10,6 +11,7 @@ const port = 3000;
 var clientRouter = require('./routes/client');
 var employeeRouter = require('./routes/employee');
 var freedayRouter = require('./routes/freeday');
+var appointmentRouter = require('./routes/appointment');
 var webpageRouter = require('./routes/webpage')
 
 //bodyParsing module settings
@@ -22,15 +24,19 @@ app.use(express.static('public'));
 app.use(session({
     secret: 'secret',
     resave: false,
-    saveUninitialized: true,
+    saveUninitialized: false,
     cookie: { secure: false }
-  }))
+}));
+
+//cookie parser
+app.use(cookieParser());
 
 
 //using custom middleware
 app.use('/client', clientRouter);
 app.use('/employee', employeeRouter);
 app.use('/freeday', freedayRouter);
+app.use('/appointment', appointmentRouter);
 app.use('/', webpageRouter);
 
 
