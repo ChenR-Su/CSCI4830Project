@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> <!-- jquery -->
+    <script>
+        $(document).ready(function(){
+            $("button").click(function(){
+                $("#div1").load("/client")
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
+    <button>GO</button>
+
+    <h3>Set a free day:</h3>
+    <form action="/freeday/create" method="POST">
+        <label for="date">Date:</label><br>
+        <input type="text" id="date" name="date"><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

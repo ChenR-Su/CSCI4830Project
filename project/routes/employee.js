@@ -63,8 +63,12 @@ router.post('/register', (req, res) => {
                 }
                 res.status(200).sendFile('Login.html', {root: path.join(__dirname, '/../public')});
             })   
-    });
-}})
+        });
+    } else {
+        console.log("incorrect company code");
+        res.status(200).sendFile('Register.html', {root: path.join(__dirname, '/../public')})
+    }
+})
 
 //authenticating an employee
 router.post('/login', (req, res) => {
@@ -82,13 +86,19 @@ router.post('/login', (req, res) => {
             if(err){
                 console.log(err);
             }
-            if(!result){
+            if(result){
+
+                
+                //getting data from the result and using it to set the session
+                var jsonResult = Object.values(JSON.parse(JSON.stringify(result)));
+                var employeeid = jsonResult[0].id;
+                req.session.employeeID = employeeid;
+                console.log(req.session);
+                res.status(200).sendFile('employeedash.html', {root: path.join(__dirname, '/../public' )})
+
+            } else {
                 console.log('user not found');
                 res.sendFile('Login.html', {root: path.join(__dirname, '/../public')});
-            } else {
-                req.session.loggedIn = true;
-                console.log(req.sesssion);
-                res.status.send('logged in successfully, next steps is to make the two dashboards and redirect the user')
             }
         })
     })

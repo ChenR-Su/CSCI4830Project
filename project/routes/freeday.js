@@ -7,7 +7,7 @@ router.get('/', (req, res) => {
 
     //connecting and querying db
     connectDB((connection) => {
-        connection.query('select * from calender', (err, result) => {
+        connection.query('select * from freeDay', (err, result) => {
             if(err){
                 console.log(err);
             }
@@ -17,14 +17,14 @@ router.get('/', (req, res) => {
 })
 
 //get calender by id
-router.get('/:calid', (req, res) => {
+router.get('/:freedayid', (req, res) => {
 
     //getting calender id from params
     let id = req.params.calid;
 
     //connecting and querying db
     connectDB((connection) => {
-        connection.query('select * from calender where `id` = ?', [id], (err, result) => {
+        connection.query('select * from freeDay where `id` = ?', [id], (err, result) => {
             if(err){
                 console.log(err);
             }
@@ -41,7 +41,7 @@ router.get('/getfromemployee/:employeeid', (req, res) => {
 
     //connecting and querying db
     connectDB((connection) => {
-        connection.query('select * from calender where `employeeid` = ?', [id], (err, result) => {
+        connection.query('select * from freeDay where `employeeid` = ?', [id], (err, result) => {
             if(err){
                 console.log(err);
             }
@@ -51,23 +51,23 @@ router.get('/getfromemployee/:employeeid', (req, res) => {
 })
 
 //post calender
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
+
+    console.log(req.session);
 
     let post = {
-        employeeid : req.body.employeeid
+        date : req.body.date
     }
 
     console.log(`employeeid: ${post.employeeid}`);
 
+    let query = `insert into freeDay (freedate, employeeid) values ('${post.date}', '${req.session.employeeid}')`;
     connectDB((connection) => {
-        connection.query('select * from calender where `employeeid` = ?', [post.employeeid], (err, result) =>{
+        connection.query(query, (err, result) =>{
             if(err){
                 console.log(err);
             }
-            Object.keys(result).forEach(entry => {
-                resultValue = result[entry]['id'];
-                
-            })
+            
             res.send(result);
         })
     })

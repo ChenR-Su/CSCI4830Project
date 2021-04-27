@@ -9,7 +9,7 @@ const port = 3000;
 //getting routers
 var clientRouter = require('./routes/client');
 var employeeRouter = require('./routes/employee');
-var calenderRouter = require('./routes/calender');
+var freedayRouter = require('./routes/freeday');
 var webpageRouter = require('./routes/webpage')
 
 //bodyParsing module settings
@@ -20,14 +20,17 @@ app.use(express.static('public'));
 
 //setting up the sessions
 app.use(session({
-    secret: "secret"
-}));
+    secret: 'secret',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: false }
+  }))
 
 
 //using custom middleware
 app.use('/client', clientRouter);
 app.use('/employee', employeeRouter);
-app.use('/calender', calenderRouter);
+app.use('/freeday', freedayRouter);
 app.use('/', webpageRouter);
 
 

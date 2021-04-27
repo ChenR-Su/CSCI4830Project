@@ -84,7 +84,7 @@ router.post('/login', (req, res) => {
                 console.log('user not found');
                 res.sendFile('Login.html', {root: path.join(__dirname, '/../public')});
             } else {
-                req.session.loggedIn = true;
+                req.session.loggedInAsClient = true;
                 console.log(result);
                 res.status(200).send(req.session);
             }
